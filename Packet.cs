@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RA
 {
@@ -34,8 +35,11 @@ namespace RA
 
             foreach (string command in brokenCommands)
             {
-                string[] c = command.Split('|');
-                Commands.Add(Encoding.UTF8.GetString(Convert.FromBase64String(c[0])), Encoding.UTF8.GetString(Convert.FromBase64String(c[1])));
+                if (command != "")
+                {
+                    string[] c = command.Split('|');
+                    Commands.Add(Encoding.UTF8.GetString(Convert.FromBase64String(c[0])), Encoding.UTF8.GetString(Convert.FromBase64String(c[1])));
+                }
             }
         }
 
